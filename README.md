@@ -46,17 +46,17 @@ cd algorithm && make all
 
 ### Run the algorithms
 
-./TGOA-OP ./realData/EverySender\_cap1/data\_00.txt
+./TGOA-OP ../dataset/real/EverySender\_cap1/data\_00.txt
 
-./Greedy ./realData/EverySender\_cap1/data\_00.txt
+./Greedy ../dataset/real/EverySender\_cap1/data\_00.txt
 
-./TGOA ./realData/EverySender\_cap1/data\_00.txt
+./TGOA ../dataset/real/EverySender\_cap1/data\_00.txt
 
-./TGOA-Greedy ./realData/EverySender\_cap1/data\_00.txt
+./TGOA-Greedy ../dataset/real/EverySender\_cap1/data\_00.txt
 
-./Ext-GRT ./realData/EverySender\_cap1/data\_00.txt
+./Ext-GRT ../dataset/real/EverySender\_cap1/data\_00.txt
 
-./OPT ./realData/EverySender\_cap1/data\_00.txt
+./OPT ../dataset/real/EverySender\_cap1/data\_00.txt
 
 Description of the datasets
 ---------------

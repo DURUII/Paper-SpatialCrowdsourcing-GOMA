@@ -1,7 +1,21 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <cstdio>
+#include <fstream>
+#include <algorithm>
+#include <cmath>
+#include <deque>
+#include <vector>
+#include <queue>
+#include <string>
+#include <cstring>
+#include <map>
+#include <stack>
+#include <set>
+
 using namespace std;
 
 void input_basic(const string& fileName, int& taskN, int& workerN, int& Umax, int& sumC, int& seqN);

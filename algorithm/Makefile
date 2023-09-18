@@ -3,7 +3,7 @@
 ##
 CC = gcc
 CXX = g++
-LIBS = -lrt
+# LIBS = -lrt
 CFLAGS = --std=c++11 -W -Wall -Wno-sign-compare -O2 -s -pipe -mmmx -msse -msse2 -msse3
 TARGET = ./all
 

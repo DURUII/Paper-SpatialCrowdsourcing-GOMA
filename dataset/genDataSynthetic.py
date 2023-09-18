@@ -19,15 +19,15 @@ class constForDataSet:
 	lambdaList = [2, 5, 10, 20, 50]
 	muList = [2, 5, 10, 20, 50]
 	defaultValues = {
-		"T": TList[len(TList)/2],
-		"W": WList[len(WList)/2],
-		"cw": cwList[len(cwList)/6],
-		"rw": rwList[len(rwList)/2],
-		"dw": dwList[len(dwList)/2],
-		"ddl": ddlList[len(ddlList)/2],
-		"pt": ptList[len(ptList)/2],
-		"lambda": lambdaList[len(lambdaList)/2],
-		"muList": muList[len(muList)/2],
+		"T": TList[len(TList)//2],
+		"W": WList[len(WList)//2],
+		"cw": cwList[len(cwList)//6],
+		"rw": rwList[len(rwList)//2],
+		"dw": dwList[len(dwList)//2],
+		"ddl": ddlList[len(ddlList)//2],
+		"pt": ptList[len(ptList)//2],
+		"lambda": lambdaList[len(lambdaList)//2],
+		"muList": muList[len(muList)//2],
 	}
 	umax = 100
 	umin = 10
@@ -54,7 +54,7 @@ class randomGenerator(baseGenerator):
 
 	def gen(self, n):
 		ret = [0] * n
-		for i in xrange(n):
+		for i in range(n):
 			x = randint(1, self.mx)
 			ret[i] = x
 		return ret
@@ -68,7 +68,7 @@ class normalGenerator(baseGenerator):
 	def gen(self, n, lb = None, rb = None):
 		# print lb, rb
 		ret = np.random.normal(self.mu, self.sigma, n)
-		for i in xrange(n):
+		for i in range(n):
 			if lb is not None and ret[i]<lb:
 				ret[i] = lb
 			if rb is not None and ret[i]>rb:
@@ -91,7 +91,7 @@ class uniformGenerator(baseGenerator):
 
 	def gen(self, n, lb = None, rb = None):
 		ret = np.random.uniform(self.low, self.high, n)
-		for i in xrange(n):
+		for i in range(n):
 			if lb is not None and ret[i]<lb:
 				ret[i] = lb
 			if rb is not None and ret[i]>rb:
@@ -111,7 +111,7 @@ class expGenerator(baseGenerator):
 
 	def gen(self, n, lb = None, rb = None):
 		ret = np.random.exponential(self.mu, n)
-		for i in xrange(n):
+		for i in range(n):
 			if lb is not None and ret[i]<lb:
 				ret[i] = lb
 			if rb is not None and ret[i]>rb:
@@ -125,7 +125,7 @@ class expGenerator(baseGenerator):
 def genLoc(n, low=0, high=100):
 	ret = []
 	st = set()
-	for i in xrange(n):
+	for i in range(n):
 		while True:
 			x = 1.0*randint(low*10**6, high*10**6) / 10**6
 			y = 1.0*randint(low*10**6, high*10**6) / 10**6
@@ -168,8 +168,8 @@ def genData(desFileName, _oids_w, _oids_t, wids, wlocs, tids, tlocs, cw, rw, dws
 
 
 def genOids(W, T):
-	oids_w = range(0, W)
-	oids_t = range(0, T)
+	oids_w = list(range(0, W))
+	oids_t = list(range(0, T))
 	return oids_w, oids_t
 
 
@@ -185,7 +185,7 @@ def nextRestrictOrder(oids_w, oids_t):
 	m, n = len(oids_t), len(oids_w)
 	curPer = int( math.ceil(len(oids_t)*1.0 / len(oids_w)) )
 	shuffle(_oids_w)
-	for i in xrange(n):
+	for i in range(n):
 		wid = _oids_w[i]
 		fr, to = wid*curPer, (wid+1)*curPer
 		if fr >= len(oids_t):
@@ -221,8 +221,8 @@ def genDws(W, dw, sigma = 0.05):
 def genPts(T, m, n, minPts, maxPts):
 	ig, jg = 0, 0
 	pts = []
-	for i in xrange(n):
-		for j in xrange(CFDS.per):
+	for i in range(n):
+		for j in range(CFDS.per):
 			if j>=int(CFDS.per*0.7):
 				pt = maxPts[ig]
 				ig = (ig+1) % len(maxPts)
@@ -255,8 +255,8 @@ def genTasks(m, n, wids, wlocs, rw):
 	per = CFDS.per
 	tids = []
 	tlocs = []
-	for i in xrange(n):
-		for j in xrange(per):
+	for i in range(n):
+		for j in range(per):
 			tid = wids[i]
 			if j>=int(per*0.7):
 				tloc_x = wlocs[i][0] + 1.0*randint(-0.10*rw*10**6, 0.10*rw*10**6) / 10**6
@@ -276,8 +276,8 @@ def sampleTasks(m, n, tids, tlocs, pts):
 	_tids = []
 	_tlocs = []
 	_pts = []
-	for i in xrange(n):
-		for j in xrange(curPer):
+	for i in range(n):
+		for j in range(curPer):
 			if j>=int(curPer*0.7):
 				k = i*per + int(per*0.7) + j - int(curPer*0.7)
 			else:
@@ -299,8 +299,8 @@ def _genPts(T, W, pt, sigma=3.75):
 	maxPts = maxGenerator.gen(T*per, pt/10.0, CFDS.umax)
 	ig, jg = 0, 0
 	pts = []
-	for i in xrange(W):
-		for j in xrange(curPer):
+	for i in range(W):
+		for j in range(curPer):
 			if j>=int(curPer*0.7):
 				pt = maxPts[ig]
 				ig = (ig+1) % len(maxPts)
@@ -338,7 +338,7 @@ def genDataSet(desFilePath, orderN = 10):
 		_tids, _tlocs, _pts = sampleTasks(T, W, tids, tlocs, pts)
 		__oids_w, __oids_t = genOids(W, T)
 		_oids_w, _oids_t = __oids_w, __oids_t
-		for oid in xrange(orderN):
+		for oid in range(orderN):
 			desFileName = "data_%02d.txt" % (oid)
 			desFileName = os.path.join(tmpFilePath, desFileName)
 			if os.path.exists(desFileName):
@@ -365,7 +365,7 @@ def genDataSet(desFilePath, orderN = 10):
 		_tids, _tlocs, _pts = sampleTasks(T, W, tids, tlocs, pts)
 		__oids_w, __oids_t = genOids(W, T)
 		_oids_w, _oids_t = __oids_w, __oids_t
-		for oid in xrange(orderN):
+		for oid in range(orderN):
 			desFileName = "data_%02d.txt" % (oid)
 			desFileName = os.path.join(tmpFilePath, desFileName)
 			if os.path.exists(desFileName):
@@ -391,7 +391,7 @@ def genDataSet(desFilePath, orderN = 10):
 		_tids, _tlocs, _pts = sampleTasks(T, W, tids, tlocs, pts)
 		__oids_w, __oids_t = genOids(W, T)
 		_oids_w, _oids_t = __oids_w, __oids_t
-		for oid in xrange(orderN):
+		for oid in range(orderN):
 			desFileName = "data_%02d.txt" % (oid)
 			desFileName = os.path.join(tmpFilePath, desFileName)
 			if os.path.exists(desFileName):
@@ -417,7 +417,7 @@ def genDataSet(desFilePath, orderN = 10):
 		_tids, _tlocs, _pts = sampleTasks(T, W, tids, tlocs, pts)
 		__oids_w, __oids_t = genOids(W, T)
 		_oids_w, _oids_t = __oids_w, __oids_t
-		for oid in xrange(orderN):
+		for oid in range(orderN):
 			desFileName = "data_%02d.txt" % (oid)
 			desFileName = os.path.join(tmpFilePath, desFileName)
 			if os.path.exists(desFileName):
@@ -444,7 +444,7 @@ def genDataSet(desFilePath, orderN = 10):
 		__oids_w, __oids_t = genOids(W, T)
 		_oids_w, _oids_t = __oids_w, __oids_t
 		_dws = genDws(W, dw)
-		for oid in xrange(orderN):
+		for oid in range(orderN):
 			desFileName = "data_%02d.txt" % (oid)
 			desFileName = os.path.join(tmpFilePath, desFileName)
 			if os.path.exists(desFileName):
@@ -470,7 +470,7 @@ def genDataSet(desFilePath, orderN = 10):
 		_tids, _tlocs, _pts = sampleTasks(T, W, tids, tlocs, pts)
 		__oids_w, __oids_t = genOids(W, T)
 		_oids_w, _oids_t = __oids_w, __oids_t
-		for oid in xrange(orderN):
+		for oid in range(orderN):
 			desFileName = "data_%02d.txt" % (oid)
 			desFileName = os.path.join(tmpFilePath, desFileName)
 			if os.path.exists(desFileName):
@@ -497,7 +497,7 @@ def genDataSet(desFilePath, orderN = 10):
 		__oids_w, __oids_t = genOids(W, T)
 		_oids_w, _oids_t = __oids_w, __oids_t
 		_pts = _genPts(T, W, pt)
-		for oid in xrange(orderN):
+		for oid in range(orderN):
 			desFileName = "data_%02d.txt" % (oid)
 			desFileName = os.path.join(tmpFilePath, desFileName)
 			if os.path.exists(desFileName):
@@ -525,7 +525,7 @@ def genDataSet(desFilePath, orderN = 10):
 		__oids_w, __oids_t = genOids(W, T)
 		_oids_w, _oids_t = __oids_w, __oids_t
 		_pts = _genPts(T, W, pt)
-		for oid in xrange(orderN):
+		for oid in range(orderN):
 			desFileName = "data_%02d.txt" % (oid)
 			desFileName = os.path.join(tmpFilePath, desFileName)
 			if os.path.exists(desFileName):
@@ -553,7 +553,7 @@ def genDataSet(desFilePath, orderN = 10):
 		__oids_w, __oids_t = genOids(W, T)
 		_oids_w, _oids_t = __oids_w, __oids_t
 		_pts = _genPts(T, W, pt)
-		for oid in xrange(orderN):
+		for oid in range(orderN):
 			desFileName = "data_%02d.txt" % (oid)
 			desFileName = os.path.join(tmpFilePath, desFileName)
 			if os.path.exists(desFileName):
@@ -568,7 +568,7 @@ def exp1():
 	if not os.path.exists(desFilePath):
 		os.mkdir(desFilePath)
 	genDataSet(desFilePath, CFDS.caseN)
-	print "DONE."
+	print("DONE.")
 	
 if __name__ == "__main__":
 	exp1()

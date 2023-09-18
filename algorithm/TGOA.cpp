@@ -2,7 +2,22 @@
 	\author: Trasier
 	\date: 2017.04.02
 */
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+
+#include <iostream>
+#include <cstdio>
+#include <fstream>
+#include <algorithm>
+#include <cmath>
+#include <deque>
+#include <vector>
+#include <queue>
+#include <string>
+#include <cstring>
+#include <map>
+#include <stack>
+#include <set>
+
 using namespace std;
 //#pragma comment(linker,"/STACK:102400000,1024000")
 #include "input.h"

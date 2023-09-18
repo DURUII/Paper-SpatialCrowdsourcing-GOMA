@@ -1,0 +1,9 @@
+
+*.bak
+algorithm/Ext-GRT
+algorithm/Greedy
+algorithm/OPT
+algorithm/TGOA
+algorithm/TGOA-OP
+algorithm/TGOA-Greedy
+**/.DS_Store

@@ -1,3 +1,5 @@
+# Original Repository
+
 GOMA: Two-sided Online Micro-Task Assignment in Spatial Crowdsourcing
 ========================================================================
 
@@ -90,3 +92,7 @@ Contact
 ------------
 - Yuxiang Zeng: yzengal@cse.ust.hk
 - Yongxin Tong: yxtong@buaa.edu.cn
+
+
+# Replica Version using Python3.11
+

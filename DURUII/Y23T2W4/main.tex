@@ -1,0 +1,122 @@
+\documentclass[a4paper,10pt]{ctexart}
+
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[final]{pdfpages}
+\usepackage[stable]{footmisc}
+\usepackage{threeparttable}
+\usepackage{indentfirst}
+\usepackage{minted}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% \setlength{\parindent}{0pt}
+\geometry{top=20mm,bottom=20mm,left=20mm,right=20mm}
+\lstset{
+    rulesepcolor= \color{gray},
+    breaklines=true,
+    numbers=left,
+    numberstyle= \small,
+    commentstyle=\color{gray},
+    frame=shadowbox
+}
+
+\title{Y23T2W4 例行周报}
+\author{杜睿}
+% \date{}
+
+\begin{document}
+\tableofcontents
+\maketitle
+
+% \begin{abstract}
+% \end{abstract}
+
+\section{时空众包平台中的在线二维匹配}
+
+基于童咏昕于TKDE 2021 论文及ADL 103所作报告。
+
+\subsection{引言}
+
+时空众包核心问题是任务分配，即在满足时空等条件约束下，如何为不同任务分配合适的工人，使得任务匹配个数（效用值）最大化。在线场景下，工人和任务都是实时出现的。
+
+\subsection{title}
+
+\section{在线匹配问题的近况与进展}
+
+基于黄志毅于IJTCS-FAW 2022所作报告。
+
+
+\section{数据驱动的拍卖机制设计}
+
+基于黄志毅于2023年9月18日所作报告。
+
+设计最优拍卖机制是微观经济学中一个非常重要的课题， 特别是网络经济的发展让这个课题更加具有现实意义。经济学中关于这个课题最重要的结果就是著名的Myerson 最优拍卖理论， Myerson 因此而获得了诺贝尔经济学奖 。但这个漂亮的经济学理论在现实中的使用却非常少，主要有两个原因： 一是这个最优拍卖机制比较复杂； 二是这个机制的最优性有很严格的数学假设条件，这些条件不一定在现实中满足。针对这些问题， 最近十几年里在理论计算机界有 一系列关于最有拍卖机制设计的工作， 主要突出机制的简单性与鲁棒性。本报告会综述这方面的工作并展望未来的方向 。
+
+\subsection{基础模型与理论}
+
+\subsection{统计学习理论取得的进展}
+
+\subsection{乘积分布的可学习性与强收益单调性}
+
+\end{document}
+
+% \begin{table}[htbp]
+%     \caption{常用的处理机调度策略}
+%     \centering
+
+%     \begin{threeparttable}
+%         \begin{tabular}{cccccc}
+%             \toprule
+%             算法名称           & 主要适用范围       & 默认调度方式         \\
+%             \midrule
+%             先来先服务         & 作业调度\&进程调度 & 非抢占式             \\
+%             短作业（进程）优先 & 作业调度\&进程调度 & 非抢占式             \\
+%             高响应比优先       & 作业调度           & 非抢占式             \\
+%             时间片轮转         & 进程调度           & 抢占式（不抢时间片） \\
+%             多级反馈队列       & 进程调度           & 抢占式（抢占时间片） \\
+%             \bottomrule
+%         \end{tabular}
+
+%         \zihao{-6}
+%         \begin{tablenotes}
+%             \item [*]   调度策略也就是调度算法
+%         \end{tablenotes}
+
+%     \end{threeparttable}
+%     \qquad
+% \end{table}
+
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[height=550pt]{v1-class-compat.png}
+%     \caption{UML类图（第二版）}
+% \end{figure}
+
+% \begin{minted}[mathescape,
+%     linenos,
+%     numbersep=5pt,
+%     frame=lines,
+%     gobble=4,
+%     framesep=2mm]{Java}
+%     public interface Observable {
+%         void attachObserver(Observer o);
+
+%         void detachObserver(Observer o);
+
+%         void notifyObservers();
+%     }
+% \end{minted}
+
+% \begin{lstlisting}[language={java},caption={收容队列（基于响应比的优先队列）}]
+% private PriorityQueue<Task> queue = new PriorityQueue<>(new Comparator<Task>() {
+%     @Override
+%     public int compare(Task o1, Task o2) {
+%         return (o2.getResponseRate(Clock.minutes) - o1.getResponseRate(Clock.minutes) > 0) ? (1) : (-1);
+%     }
+% });
+% \end{lstlisting}

@@ -1,8 +1,6 @@
 GOMA: Two-sided Online Micro-Task Assignment in Spatial Crowdsourcing
 ========================================================================
 
-This repository stores the source code of the solutions to the problem called GOMA in the following papers. Our appendix (i.e., the full paper) has also been uploaded here (i.e., **TKDE-goma-Appendix.pdf**).
-
 [1] **Two-sided Online Micro-Task Assignment in Spatial Crowdsourcing.**
 *Yongxin Tong, Yuxiang Zeng, Bolin Ding, Libin Wang, Lei Chen.* IEEE Transactions on Knowledge and Data Engineering, 2019. [link](https://doi.org/10.1109/TKDE.2019.2948863)
  
@@ -28,65 +26,4 @@ If you find our work helpful in your research, please consider citing our papers
   pages     = {49--60},
   year      = {2016},
 }
-```  
-
-Usage of the algorithms
----------------
-
-### Environment
-
-gcc/g++ version: 7.4.0 
-
-OS: Ubuntu
-
-### Compile the algorithms
-
-cd algorithm && make all
-
-
-### Run the algorithms
-
-./TGOA-OP ../dataset/real/EverySender\_cap1/data\_00.txt
-
-./Greedy ../dataset/real/EverySender\_cap1/data\_00.txt
-
-./TGOA ../dataset/real/EverySender\_cap1/data\_00.txt
-
-./TGOA-Greedy ../dataset/real/EverySender\_cap1/data\_00.txt
-
-./Ext-GRT ../dataset/real/EverySender\_cap1/data\_00.txt
-
-./OPT ../dataset/real/EverySender\_cap1/data\_00.txt
-
-Description of the datasets
----------------
-
-### Environment
-
-Python: 2.7
-
-### Synthetic dataset
-
-dataset/synthetic: a sample of our synthetic dataset (\#2)
-
-dataset/genDataSynthetic.py: a script to generate the synthetic datasets
-
-Please refer to genDataSynthetic.py for the format of the dataset.
-
-### Real dataset
-
-dataset/real/EverySender*: includes the datasets of EverySende 
-
-dataset/real/gMission*: incldues the datasets of gMission
-
-Please refer to the source code for the format of the dataset.
-
-Related resources
-------------------------
-We have maintained a paper list of the studies on spatial crowdsourcing. [link](https://github.com/BUAA-BDA/SpatialCrowdsourcing-Survey)
-
-
-Contact
-------------
-- Yuxiang Zeng: yzengal@cse.ust.hk
-- Yongxin Tong: yxtong@buaa.edu.cn
+```
